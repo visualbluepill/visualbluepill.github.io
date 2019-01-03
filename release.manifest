@@ -1,0 +1,72 @@
+CACHE MANIFEST
+
+CACHE:
+/semantic.js
+/main.js
+/pxtapp.js
+/typescript.js
+/marked/marked.min.js
+/highlight.js/highlight.pack.js
+/jquery.js
+/pxtlib.js
+/pxtcompiler.js
+/pxtblockly.js
+/pxtwinrt.js
+/pxteditor.js
+/pxtsim.js
+/pxtembed.js
+/pxtworker.js
+/pxtweb.js
+/blockly.css
+/semantic.css
+/rtlsemantic.css
+
+
+/editor.js
+
+
+# blockly
+/blockly/media/sprites.png
+/blockly/media/click.mp3
+/blockly/media/disconnect.wav
+/blockly/media/delete.mp3
+
+# monaco; keep in sync with webapp/public/index.html
+/vs/loader.js
+/vs/base/worker/workerMain.js
+/vs/basic-languages/src/bat.js
+/vs/basic-languages/src/cpp.js
+/vs/editor/editor.main.css
+/vs/editor/editor.main.js
+/vs/editor/editor.main.nls.js
+/vs/language/json/jsonMode.js
+/vs/language/json/jsonWorker.js
+/vs/language/typescript/lib/typescriptServices.js
+/vs/language/typescript/src/mode.js
+/vs/language/typescript/src/worker.js
+
+# charts
+/smoothie/smoothie_compressed.js
+/images/Bars_black.gif
+
+# ai
+/ai.0.js
+
+/worker.js
+/monacoworker.js
+
+# ver Fri Jan 04 2019 00:57:56 GMT+0800 (+08)
+
+# target
+/docs/static/logo.svg
+/docs/static/logo.svg
+/docs/static/logo.svg
+/docs/static/logo.svg
+/docs/static/Microsoft-logo_rgb_c-gray-square.png
+/docs/static/Microsoft-logo_rgb_c-gray.png
+/docs/static/hero.jpg
+
+/target.js
+  
+NETWORK:
+*

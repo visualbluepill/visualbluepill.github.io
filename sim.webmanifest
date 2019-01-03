@@ -1,0 +1,24 @@
+{
+  "lang": "en",
+  "dir": "ltr",
+  "name": "MakeCode Maker (Cortex class)",
+  "short_name": "maker",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "@cdnUrl@/blob/1646e100b89f08fa7803bf3ae4b454af4bd0cd66/static/icons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "types": "image/png"
+    },
+    {
+      "src": "@cdnUrl@/blob/3475872ac15ce62cc8079e8b13a03bc0af3bdaf2/static/icons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "types": "image/png"
+    }
+  ],
+  "scope": "/",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "landscape",
+  "theme_color": "#ecf0f1"
+}
