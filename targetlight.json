@@ -297,8 +297,8 @@
   },
   "ignoreDocsErrors": true,
   "versions": {
-    "target": "0.5.72",
-    "pxt": "5.2.31"
+    "target": "0.5.73",
+    "pxt": "5.2.29"
   },
   "blocksprj": {
     "id": "blocksprj",

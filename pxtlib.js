@@ -13842,9 +13842,7 @@ var pxt;
     (function (Cloud) {
         var Util = pxtc.Util;
         // hit /api/ to stay on same domain and avoid CORS
-        ////  Change hostname for API.
-        Cloud.apiRoot = pxt.BrowserUtils.isLocalHost() || Util.isNodeJS ? "https://visualbluepill.github.io/api/" : "/api/"; ////
-        ////export let apiRoot = pxt.BrowserUtils.isLocalHost() || Util.isNodeJS ? "https://www.makecode.com/api/" : "/api/";
+        Cloud.apiRoot = pxt.BrowserUtils.isLocalHost() || Util.isNodeJS ? "https://www.makecode.com/api/" : "/api/";
         Cloud.accessToken = "";
         Cloud.localToken = "";
         var _isOnline = true;
@@ -13859,14 +13857,6 @@ var pxt;
         }
         Cloud.hasAccessToken = hasAccessToken;
         function localRequestAsync(path, data) {
-            ////  Log the request.
-            console.log('localRequestAsync', {
-                url: "/api/" + path,
-                headers: { "Authorization": Cloud.localToken },
-                method: data ? "POST" : "GET",
-                data: data || undefined,
-                allowHttpErrors: true
-            }); ////
             return pxt.U.requestAsync({
                 url: "/api/" + path,
                 headers: { "Authorization": Cloud.localToken },
