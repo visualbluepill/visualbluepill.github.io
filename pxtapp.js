@@ -6823,7 +6823,7 @@ var pxt;
                 return this.io.reconnectAsync()
                     .then(function () { return _this.initAsync(); })
                     .catch(function (e) {
-                    if (_this.reconnectTries < 5) {
+                    if (_this.reconnectTries < 10) {  ////  Increased retries from 5 to 10.
                         _this.reconnectTries++;
                         log("error " + e.message + "; reconnecting attempt #" + _this.reconnectTries);
                         return Promise.delay(500)
@@ -6843,6 +6843,7 @@ var pxt;
             };
             Wrapper.prototype.talkAsync = function (cmd, data) {
                 var _this = this;
+                console.log("hf2.talkAsync", cmd); ////
                 if (this.io.talksAsync)
                     return this.io.talksAsync([{ cmd: cmd, data: data }])
                         .then(function (v) { return v[0]; });
@@ -6935,6 +6936,7 @@ var pxt;
                 }
                 return this.maybeReconnectAsync()
                     .then(function () { return _this.talkAsync(HF2.HF2_CMD_START_FLASH); })
+                    .then(function () { return _this.maybeReconnectAsync(); }) ////  Allow device to restart and reconnect when booting from Application Mode to Bootloader Mode.
                     .then(function () { return _this.initAsync(); })
                     .then(function () {
                     if (!_this.bootloaderMode)
@@ -13845,7 +13847,9 @@ var pxt;
     (function (Cloud) {
         var Util = pxtc.Util;
         // hit /api/ to stay on same domain and avoid CORS
-        Cloud.apiRoot = pxt.BrowserUtils.isLocalHost() || Util.isNodeJS ? "https://www.makecode.com/api/" : "/api/";
+        ////  Change hostname for API.
+        Cloud.apiRoot = pxt.BrowserUtils.isLocalHost() || Util.isNodeJS ? "https://visualbluepill.github.io/api/" : "/api/"; ////
+        ////export let apiRoot = pxt.BrowserUtils.isLocalHost() || Util.isNodeJS ? "https://www.makecode.com/api/" : "/api/";
         Cloud.accessToken = "";
         Cloud.localToken = "";
         var _isOnline = true;
@@ -13860,6 +13864,14 @@ var pxt;
         }
         Cloud.hasAccessToken = hasAccessToken;
         function localRequestAsync(path, data) {
+            ////  Log the request.
+            console.log('localRequestAsync', {
+                url: "/api/" + path,
+                headers: { "Authorization": Cloud.localToken },
+                method: data ? "POST" : "GET",
+                data: data || undefined,
+                allowHttpErrors: true
+            }); ////
             return pxt.U.requestAsync({
                 url: "/api/" + path,
                 headers: { "Authorization": Cloud.localToken },

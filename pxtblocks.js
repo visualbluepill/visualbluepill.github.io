@@ -2027,6 +2027,9 @@ var pxt;
         function importXml(pkgTargetVersion, xml, info, skipReport) {
             if (skipReport === void 0) { skipReport = false; }
             try {
+                // If it's the first project we're importing in the session, Blockly is not initialized
+                // and blocks haven't been injected yet
+                pxt.blocks.initializeAndInject(info);
                 var parser = new DOMParser();
                 var doc_1 = parser.parseFromString(xml, "application/xml");
                 var upgrades = pxt.patching.computePatches(pkgTargetVersion);
@@ -4281,6 +4284,7 @@ var pxt;
             var proceduresDef = pxt.blocks.getBlockDefinition(proceduresDefId);
             msg.PROCEDURES_DEFNORETURN_TITLE = proceduresDef.block["PROCEDURES_DEFNORETURN_TITLE"];
             msg.PROCEDURE_ALREADY_EXISTS = proceduresDef.block["PROCEDURE_ALREADY_EXISTS"];
+            msg.PROCEDURES_HUE = pxt.toolbox.getNamespaceColor("variables");
             Blockly.Blocks['procedures_defnoreturn'].init = function () {
                 var nameField = new Blockly.FieldTextInput('', Blockly.Procedures.rename);
                 //nameField.setSpellcheck(false); //TODO
